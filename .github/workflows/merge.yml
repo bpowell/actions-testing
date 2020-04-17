@@ -13,7 +13,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }} 
 
   merge-PR:
-    # if: github.event.pull_request_review.event == "APPROVE"
+    if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
