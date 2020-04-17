@@ -1,18 +1,30 @@
-name: Merge PR
+name: Something
 on:
-  pull_request:
-    types: [closed] 
+  pull_request_review:
+    types: [submitted] 
 jobs:
-  merge-PR:
-    if: github.event.pull_request.merged == true
+  review_approved:
+    if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
       - name: empty a.yaml
         run: |
           echo -e "" > a.yaml
+
       - name: commit a.yaml
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add a.yaml
           git commit -m 'cleaning a.yaml'
+
+      - name: push commit
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.event.pull_request.head.ref }}
