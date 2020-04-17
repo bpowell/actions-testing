@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: empty a.yaml
-         run: |
-           echo -e "" > a.yaml
+        run: |
+          echo -e "" > a.yaml
       - name: commit a.yaml
-         run: |
-           git config --local user.email "action@github.com"
-           git config --local user.name "GitHub Action"
-           git add a.yaml
-           git commit -m 'cleaning a.yaml'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add a.yaml
+          git commit -m 'cleaning a.yaml'
