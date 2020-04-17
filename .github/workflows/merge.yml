@@ -8,7 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: empty a.yaml
-         run: echo "" > a.yaml
+         run: |
+           echo -e "" > a.yaml
       - name: commit a.yaml
          run: |
            git config --local user.email "action@github.com"
