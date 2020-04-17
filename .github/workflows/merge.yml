@@ -11,7 +11,7 @@ jobs:
           echo "{ github.event.pull_request_review }"
 
   merge-PR:
-    if: github.event.pull_request_review.event == "APPROVE"
+    # if: github.event.pull_request_review.event == "APPROVE"
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
