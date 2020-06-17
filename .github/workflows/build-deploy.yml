@@ -1,0 +1,26 @@
+name: Docker Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+
+  build_deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out code
+      uses: actions/checkout@v2
+      
+    - name: Build and push
+      run: |
+        echo "hello world!!!"
+
+    - name: Kick Off Spinnaker Only For master branch
+      if: github.ref == 'refs/heads/master'
+      run: |
+        echo ":woohoo"
