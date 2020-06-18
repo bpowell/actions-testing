@@ -18,4 +18,6 @@ jobs:
       
     - name: display github
       run: |
-        echo "${{ github }}"
+        echo "${{ github.actor }}"
+        echo "${{ github.ref }}"
+        echo "${{ github.head_ref }}"
