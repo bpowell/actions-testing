@@ -1,0 +1,21 @@
+name: get git info
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+
+  git_info:
+    name: git info
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out code
+      uses: actions/checkout@v2
+      
+    - name: display github
+      run: |
+        echo "${{ github }}"
