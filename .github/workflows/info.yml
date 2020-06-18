@@ -20,4 +20,6 @@ jobs:
       run: |
         echo "${{ github.actor }}"
         echo "${{ github.ref }}"
-        echo "${{ github.head_ref }}"
+        HEAD_REF=${{ github.head_ref }}
+        REF=${{ github.ref }}
+        echo "${HEAD_REF}$(echo ${REF##*/} | sed 's/merge//')"
