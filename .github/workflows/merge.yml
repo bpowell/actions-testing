@@ -3,6 +3,20 @@ on:
   pull_request:
     types: [closed] 
 jobs:
+  validate_name:
+   runs-on: ubuntu-latest
+   steps:
+     - name: get git info
+       run: |
+        HEAD_REF=${{ github.head_ref }}
+        REF=${{ github.ref }}
+        BRANCH=$(echo "${HEAD_REF}$(echo ${REF##*/} | sed 's/merge//')")
+        BRANCH_TRUNC=$(echo ${BRANCH:0:15} | sed 's/\//_/g')
+        echo ${BRANCH}
+        echo ${BRANCH_TRUNC}
+        echo ${{ github.actor }}
+        echo ::set-output name=branch::$(echo "${BRANCH}")
+        echo ::set-output name=branch_trunc::$(echo "${BRANCH_TRUNC}")
   merge-PR:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
