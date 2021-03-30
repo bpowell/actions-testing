@@ -1,0 +1,25 @@
+name: get dir info
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+
+  dir_info:
+    name: dir info
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out code
+      uses: actions/checkout@v2
+      
+    - name: dir info
+      run: |
+        pwd
+        ls
+        ls ..
+        cd ..
+        ls
