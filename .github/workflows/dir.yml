@@ -23,4 +23,4 @@ jobs:
         ls ..
         cd ..
         ls
-        mkdir hello && cd hello && touch hello.txt
+        mkdir hello && cd hello && touch hello.txt && ls && cd - && ls
