@@ -17,10 +17,4 @@ jobs:
       uses: actions/checkout@v2
       
     - name: dir info
-      run: |
-        pwd
-        ls
-        ls ..
-        cd ..
-        ls
-        mkdir hello && cd hello && touch hello.txt && ls && cd - && ls
+      run: echo hello
