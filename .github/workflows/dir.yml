@@ -18,3 +18,7 @@ jobs:
       
     - name: dir info
       run: echo hello world
+    - name: sleep
+      run: sleep 100
+    - name: stuff
+      run: echo world
