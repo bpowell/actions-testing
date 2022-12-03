@@ -5,7 +5,6 @@ on:
     branches:
       - master
   pull_request:
-
 jobs:
   git_info:
     name: git info
