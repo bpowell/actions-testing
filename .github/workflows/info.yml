@@ -7,7 +7,6 @@ on:
   pull_request:
 
 jobs:
-
   git_info:
     name: git info
     runs-on: ubuntu-latest
