@@ -1,5 +1,4 @@
 name: get git info
-
 on:
   push:
     branches:
