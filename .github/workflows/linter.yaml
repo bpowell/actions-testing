@@ -1,0 +1,16 @@
+name: get git info
+
+on:
+  pull_request:
+jobs:
+  linter:
+    name: linter
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+      
+    - name: run linter
+      uses: oxsecurity/megalinter@v6
+      env:
+        VALIDATE_ALL_CODEBASE: false
