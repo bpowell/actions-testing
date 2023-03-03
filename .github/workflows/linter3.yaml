@@ -1,8 +1,6 @@
 name: MegaLinter
 on:
   pull_request:
-    paths:
-      - 'deploy/terraform/**'
 
 jobs:
   MegaLinter:
